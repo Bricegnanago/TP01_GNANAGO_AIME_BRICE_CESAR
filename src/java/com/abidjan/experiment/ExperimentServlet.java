@@ -42,8 +42,28 @@ public class ExperimentServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
+            String  browserDetails  =   request.getHeader("User-Agent");
             /* TODO output your page here. You may use following sample code. */
-             String  browserDetails  =   request.getHeader("User-Agent");
+             
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet ExperimentServlet</title>");            
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1 style='text-align: center'> Ma première servlet </h1>");
+            
+            out.println("<h2>Information concernant l'adresse IP et le navigateur utilisé par le client:</h2>");            
+            out.println("<p>Adresse IP du client: " + request.getRemoteAddr() +"</p>");
+            out.println("<p>Navigateur du client: " + getBrowserUsedByClient(browserDetails) +"</p>");
+            
+                
+            out.println("</body>");
+            out.println("</html>");            
+        }
+    }
+    
+    public String getBrowserUsedByClient(String browserDetails){        
         String  userAgent       =   browserDetails;
         String  user            =   userAgent.toLowerCase();
 
@@ -102,20 +122,7 @@ public class ExperimentServlet extends HttpServlet {
         {
             browser = "UnKnown, More-Info: "+userAgent;
         }        
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet ExperimentServlet</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1 style='text-align: center'> Ma première servlet </h1>");
-            
-            out.println("<h2>Information concernant l'adresse IP et le navigateur utilisé par le client:</h2>");            
-            out.println("<p>Adresse IP du client: " + request.getRemoteAddr() +"</p>");
-            out.println("<p>Navigateur du client: " + browser +"</p>");
-            out.println("</body>");
-            out.println("</html>");            
-        }
+        return browser;
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
