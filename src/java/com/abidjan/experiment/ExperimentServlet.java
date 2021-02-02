@@ -58,9 +58,9 @@ public class ExperimentServlet extends HttpServlet {
             out.println("<p>Navigateur du client: " + getBrowserUsedByClient(browserDetails) +"</p>");
             
             out.println("<h2>Information concernant la requête du client:</h2>");
-            out.println("<p>Méthode: " + request.getMethod() +"</p>");
-            out.println("<p>Protocole: " + request.getProtocol()+"</p>");
-            out.println("<p>Uri: " + request.getRequestURI() +"</p>");
+            out.println("<p>Méthode: " + request.getMethod() + "</p>");
+            out.println("<p>Protocole: " + request.getProtocol()+ "</p>");
+            out.println("<p>Uri: " + request.getRequestURI() + "</p>");
             
             /*
             out.println("<h2>Information concernant l'entête de la requête:</h2>");
