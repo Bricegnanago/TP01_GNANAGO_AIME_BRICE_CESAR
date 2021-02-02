@@ -54,17 +54,23 @@ public class ExperimentServlet extends HttpServlet {
             out.println("<h1 style='text-align: center'> Ma première servlet </h1>");
             
             out.println("<h2>Information concernant l'adresse IP et le navigateur utilisé par le client:</h2>");            
-            out.println("<p>Adresse IP du client: " + request.getRemoteAddr() +"</p>");
-            out.println("<p>Navigateur du client: " + getBrowserUsedByClient(browserDetails) +"</p>");
+            out.println("<p><Strong><u>Adresse IP du client: </u></Strong>" + request.getRemoteAddr() +"</p>");
+            out.println("<p><Strong><u>Navigateur du client: </u></Strong> " + getBrowserUsedByClient(browserDetails) +"</p>");
             
             out.println("<h2>Information concernant la requête du client:</h2>");
-            out.println("<p>Méthode: " + request.getMethod() + "</p>");
-            out.println("<p>Protocole: " + request.getProtocol()+ "</p>");
-            out.println("<p>Uri: " + request.getRequestURI() + "</p>");
+            out.println("<p><Strong><u>Méthode: </u></Strong> " + request.getMethod() + "</p>");
+            out.println("<p><Strong><u>Protocole: </u></Strong> " + request.getProtocol()+ "</p>");
+            out.println("<p><Strong><u>Uri: </u></Strong> " + request.getRequestURI() + "</p>");
             
-            /*
+            
             out.println("<h2>Information concernant l'entête de la requête:</h2>");
-            out.println("<p>Navigateur du client: " + request.getServerName() +"</p>");            */
+            out.println("<p><Strong><u>User Agent: </u></Strong>" + request.getHeader("User-Agent") +"</p>");
+            out.println("<p><Strong><u>Host: </u></Strong>" + request.getServerName() +"</p>");
+            out.println("<p><Strong><u>accept:</u></Strong> " + request.getHeader("Accept") +"</p>");
+            out.println("<p><Strong><u>accept-encoding:</u></Strong> " + request.getHeader("Accept-Encoding") +"</p>");
+            out.println("<p><Strong><u>accept-charset:</u></Strong> " + request.getHeader("Accept-Charset") +"</p>");
+            out.println("<p><Strong><u>keep-alive:</u></Strong> " + request.getHeader("Keep-Alive") +"</p>");
+            out.println("<p><Strong><u>Connexion:</u></Strong> " + request.getHeader("Connexion") +"</p>");
             out.println("</body>");
             out.println("</html>");            
         }
